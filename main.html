@@ -1,0 +1,146 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mathew Alvis - Main</title>
+  <style>
+    body {
+      font-family: Copperplate, sans-serif;
+      margin: 0;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      background: linear-gradient(to right, #8B0000, #660000);
+      color: white;
+      text-align: center;
+      padding: 30px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    nav {
+      background-color: #660000;
+      display: flex;
+      justify-content: center;
+      padding: 15px;
+      gap: 20px;
+    }
+
+    nav button {
+      background-color: white;
+      color: #8B0000;
+      border: 2px solid #8B0000;
+      padding: 10px 20px;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    nav button:hover {
+      background-color: #8B0000;
+      color: white;
+    }
+
+    #contentFrame {
+      width: 100%;
+      height: 90vh;
+      border: none;
+      display: block;
+    }
+
+    /* Popup modal styles */
+    .modal {
+      display: none; /* Hidden by default */
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.5);
+    }
+
+    .modal-content {
+      background-color: white;
+      margin: 15% auto;
+      padding: 20px;
+      border-radius: 10px;
+      width: 300px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      text-align: center;
+      font-family: Arial, sans-serif;
+      color: #660000;
+    }
+
+    .close-btn {
+      background-color: #8B0000;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin-top: 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .close-btn:hover {
+      background-color: #660000;
+    }
+  </style>
+  <script>
+window.onload = function() {
+  showModal();
+};
+
+    function loadSection(page) {
+      document.getElementById("contentFrame").src = page;
+    }
+
+    // Show the modal
+    function showModal() {
+      document.getElementById("myModal").style.display = "block";
+    }
+
+    // Close the modal
+    function closeModal() {
+      document.getElementById("myModal").style.display = "none";
+    }
+
+    // Close modal when clicking outside the content box
+    window.onclick = function(event) {
+      const modal = document.getElementById("myModal");
+      if (event.target === modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
+</head>
+<body>
+
+  <header>
+    <h1>Mathew Alvis</h1>
+  </header>
+
+  <nav>
+    <button onclick="loadSection('biodata.html')">Biodata</button>
+    <button onclick="loadSection('gallery.html')">Gallery</button>
+    <button onclick="loadSection('education.html')">Education</button>
+    <button onclick="loadSection('contact.html')">Contact</button>
+   
+  </nav>
+
+  <iframe id="contentFrame" src="biodata.html"></iframe>
+
+  <!-- The Modal -->
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <h2>Selamat Datang!</h2>
+      <p>welcome to Mathew Alvis website.</p>
+      <button class="close-btn" onclick="closeModal()">Close</button>
+    </div>
+  </div>
+
+</body>
+</html>
